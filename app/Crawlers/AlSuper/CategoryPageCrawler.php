@@ -4,6 +4,7 @@ namespace Crwlr\Crawlers\AlSuper;
 
 use Crwlr\Crawlers\Crawl;
 use Symfony\Component\DomCrawler\Crawler;
+use Crwlr\Crawlers\AlSuper\NextCategoryPageCrawler;
 
 class CategoryPageCrawler extends Crawl
 {
@@ -76,7 +77,7 @@ class CategoryPageCrawler extends Crawl
         $node = $crawler->filter('div.cpt_maincontent p.paginationf a:last-of-type')->first();
 
         if ($node->count()) {
-            $this->crawl($node->attr('href'), CategoryPageCrawler::class);
+            $this->crawl($node->attr('href'), NextCategoryPageCrawler::class);
         }
     }
 }
