@@ -12,8 +12,8 @@ class CategoryPageCrawler extends Crawl
     {
         $category = $this->processCategoryName($crawler);
         $this->processSubcategories($crawler, $category);
-        // $this->processProducts($crawler);
-        // $this->processNextPage($crawler);
+        $this->processProducts($crawler);
+        $this->processNextPage($crawler);
 
     }
 
