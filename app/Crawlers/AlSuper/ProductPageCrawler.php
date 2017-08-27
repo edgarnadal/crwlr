@@ -23,7 +23,7 @@ class ProductPageCrawler extends Crawl
     protected function processProductInfo(Crawler $crawler)
     {
         $category = $crawler->filter('h2')->first()->text();
-        $category = $this->store->category()->whereName($category)->first();
+        $category = $this->store()->category()->whereName($category)->first();
 
         $name = $crawler->filter('h1')->first()->text();
         $description = $crawler->filter('div.cpt_product_description div')->first()->text();
