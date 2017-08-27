@@ -59,9 +59,12 @@ class CategoryPageCrawler extends Crawl
     {
         $crawler
             ->filter('div.cpt_maincontent li a')
-            ->each(function (Crawler $node) {
+            ->each(function (Crawler $node) use ($category) {
 
-                // updateOrCreate subcategory
+                $this->store()->category()->updateOrCreate(['name' => $node->text()], [
+                    'parent_id' => $category->id
+                ]);
+
                 $this->crawl($node->attr('href'), CategoryPageCrawler::class);
             });
     }
