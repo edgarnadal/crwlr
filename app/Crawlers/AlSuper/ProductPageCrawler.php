@@ -25,9 +25,9 @@ class ProductPageCrawler extends Crawl
         $category = $crawler->filter('h2')->first()->text();
         $category = $this->store()->category()->whereName($category)->first();
 
-        $name = $crawler->filter('h1')->first()->text();
-        $description = $crawler->filter('div.cpt_product_description div')->first()->text();
-        $picture_url = $crawler->filter('img.small_product')->first()->attr('src');
+        $name = trim($crawler->filter('h1')->first()->text());
+        $description = htmlspecialchars(trim($crawler->filter('div.cpt_product_description div')->first()->text()));
+        $pictureUrl = $crawler->filter('img.small_product')->first()->attr('src');
         $price = $crawler->filter('div.cpt_product_price')->first()->text();
 
         return $this->store()->product()->updateOrCreate(['page_id' => $this->page()->id], [

@@ -11,9 +11,9 @@ class CategoryPageCrawler extends Crawl
     public function run(Crawler $crawler)
     {
         $category = $this->processCategoryName($crawler);
-        $this->processProducts($crawler);
         $this->processSubcategories($crawler, $category);
-        $this->processNextPage($crawler);
+        // $this->processProducts($crawler);
+        // $this->processNextPage($crawler);
 
     }
 

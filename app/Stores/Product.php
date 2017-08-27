@@ -19,7 +19,7 @@ class Product extends Model
      *
      * @var array
      */
-    protected $fillable = ['store_category_id', 'description', 'page_id', 'picture_url', 'price'];
+    protected $fillable = ['store_category_id', 'name', 'description', 'page_id', 'picture_url', 'price'];
 
     /**
      * Page relation
